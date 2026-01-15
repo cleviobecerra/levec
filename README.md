@@ -68,4 +68,4 @@ levec-electricidad/
 *   **Email**: contacto@levec.cl
 
 ---
-© 2024 Levec Electricidad y Construcción. Todos los derechos reservados.
+© 2026 Levec Electricidad y Construcción. Todos los derechos reservados.
