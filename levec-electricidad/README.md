@@ -46,6 +46,17 @@ Para ver el proyecto en tu máquina local:
     ```
 4.  Abre tu navegador en `http://localhost:3000`.
 
+## ☁️ Despliegue en Vercel
+
+Este proyecto está listo para ser desplegado en Vercel.
+
+1.  Sube tu código a GitHub.
+2.  Crea una cuenta en [Vercel](https://vercel.com/signup).
+3.  Importa tu repositorio de GitHub.
+4.  Vercel detectará automáticamente la configuración. ¡Listo!
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftu-usuario%2Flevec-electricidad)
+
 ## 📄 Estructura del Proyecto
 
 ```
