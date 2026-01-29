@@ -36,11 +36,11 @@ const MONTH_NAMES = [
 
 export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFiltersProps) {
     return (
-        <div className="flex flex-wrap gap-4 p-4 bg-white rounded-lg border shadow-sm items-end">
-            <div className="space-y-2 w-full md:w-[120px]">
-                <label className="text-sm font-medium text-slate-700">Año</label>
+        <div className="flex flex-row flex-wrap items-end gap-x-6 gap-y-4 p-5 bg-white rounded-xl border border-slate-200 shadow-sm">
+            <div className="flex flex-col gap-2 min-w-[110px]">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 ml-0.5">Año</label>
                 <Select value={filters.year || 'all'} onValueChange={(val) => onChange('year', val === 'all' ? undefined : val)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="h-10 border-slate-200 bg-slate-50/30">
                         <SelectValue placeholder="Año" />
                     </SelectTrigger>
                     <SelectContent>
@@ -52,14 +52,14 @@ export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFilter
                 </Select>
             </div>
 
-            <div className="space-y-2 w-full md:w-[150px]">
-                <label className="text-sm font-medium text-slate-700">Mes</label>
+            <div className="flex flex-col gap-2 min-w-[140px]">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 ml-0.5">Mes</label>
                 <Select
                     value={filters.month || 'all'}
                     onValueChange={(val) => onChange('month', val === 'all' ? undefined : val)}
                     disabled={!filters.year}
                 >
-                    <SelectTrigger>
+                    <SelectTrigger className="h-10 border-slate-200 bg-slate-50/30">
                         <SelectValue placeholder={!filters.year ? "Sel. Año" : "Mes"} />
                     </SelectTrigger>
                     <SelectContent>
@@ -71,14 +71,14 @@ export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFilter
                 </Select>
             </div>
 
-            <div className="space-y-2 w-full md:w-[120px]">
-                <label className="text-sm font-medium text-slate-700">Fecha</label>
+            <div className="flex flex-col gap-2 min-w-[100px]">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 ml-0.5">Fecha</label>
                 <Select
                     value={filters.day || 'all'}
                     onValueChange={(val) => onChange('day', val === 'all' ? undefined : val)}
                     disabled={!filters.month}
                 >
-                    <SelectTrigger>
+                    <SelectTrigger className="h-10 border-slate-200 bg-slate-50/30">
                         <SelectValue placeholder={!filters.month ? "Sel. Mes" : "Día"} />
                     </SelectTrigger>
                     <SelectContent>
@@ -90,10 +90,10 @@ export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFilter
                 </Select>
             </div>
 
-            <div className="space-y-2 w-full md:w-[200px]">
-                <label className="text-sm font-medium text-slate-700">U. Negocio</label>
+            <div className="flex flex-col gap-2 min-w-[180px] flex-1">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 ml-0.5">U. Negocio</label>
                 <Select value={filters.businessUnit} onValueChange={(val) => onChange('businessUnit', val)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="h-10 border-slate-200 bg-slate-50/30">
                         <SelectValue placeholder="Todas" />
                     </SelectTrigger>
                     <SelectContent>
@@ -105,10 +105,10 @@ export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFilter
                 </Select>
             </div>
 
-            <div className="space-y-2 w-full md:w-[200px]">
-                <label className="text-sm font-medium text-slate-700">Sub-Área</label>
+            <div className="flex flex-col gap-2 min-w-[180px] flex-1">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 ml-0.5">Sub-Área</label>
                 <Select value={filters.subArea} onValueChange={(val) => onChange('subArea', val)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="h-10 border-slate-200 bg-slate-50/30">
                         <SelectValue placeholder="Todas" />
                     </SelectTrigger>
                     <SelectContent>
@@ -120,13 +120,18 @@ export function AnalyticsFilters({ options, filters, onChange }: AnalyticsFilter
                 </Select>
             </div>
 
-            <Button variant="ghost" size="sm" className="mb-0.5" onClick={() => {
-                onChange('year', undefined)
-                onChange('month', undefined)
-                onChange('day', undefined)
-                onChange('businessUnit', 'all')
-                onChange('subArea', 'all')
-            }}>
+            <Button
+                variant="ghost"
+                size="sm"
+                className="h-10 px-4 text-slate-500 hover:text-red-600 hover:bg-red-50 transition-colors"
+                onClick={() => {
+                    onChange('year', undefined)
+                    onChange('month', undefined)
+                    onChange('day', undefined)
+                    onChange('businessUnit', 'all')
+                    onChange('subArea', 'all')
+                }}
+            >
                 Limpiar
             </Button>
         </div>
